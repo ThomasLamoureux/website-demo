@@ -1,0 +1,19 @@
+.center {
+    margin: auto;
+    width: 20%;
+    border: 2px solid rgb(0, 0, 0);
+    padding: 10px;
+}
+
+#loginSubmission {
+    margin: auto;
+    width: 15%;
+    border: 2px solid rgb(0, 0, 0);
+    padding: 10px;
+}
+
+#loginSubmission:hover {
+    color: azure;
+    background-color: black;
+    border-color: rgb(121, 100, 100);
+}

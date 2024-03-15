@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>HeartHounds | Login</title>
+
+        <link rel="stylesheet" href="style.css" />
+        <link rel="icon" href="..\\images\\logo.png" />
+
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="Testing Website" />
+        <meta name="keywords" content="awesome" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="page">
+            <h1>User Login</h1>
+            <div id="userLogin" class="center">
+                <form id="pass" onsubmit="log(); return false">
+                    <label for="usernameTextBox">Username</label>
+                    <br />
+                    <input
+                        type="text"
+                        id="usernameTextBox"
+                        name="usernameText"
+                        maxlength="34"
+                        size="30"
+                        required
+                    />
+                    <br />
+                    <label for="passwordTextBox">Password</label>
+                    <br />
+                    <input
+                        type="password"
+                        id="passwordTextBox"
+                        name="passwordText"
+                        maxlength="150"
+                        size="30"
+                        required
+                    />
+                    <br />
+                    <br />
+                    <input type="submit" id="loginSubmission" value="Login" 
+                />
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>

@@ -3,7 +3,7 @@ const socket = new WebSocket.Server({port: 8080});
 
 
 function passwordRequest(ws, user) {
-    let data = getData();
+    let data = getDatabase();
 
     let userData = data.users[user];
     let userPassword = userData.password;
@@ -13,7 +13,7 @@ function passwordRequest(ws, user) {
 
 
 function userProfileRequest(ws, user) {
-    let data = getData();
+    let data = getDatabase();
     
     let userData = data.users[user];
     console.log(user)
@@ -30,7 +30,7 @@ socket.on("connection", ws => {
 
     ws.on("message", event => {
         let msg = JSON.parse(event);
-        console.log("hi")
+
         try {
             switch(msg.type) {
                 case "passwordRequest":
@@ -39,8 +39,6 @@ socket.on("connection", ws => {
                 case "userProfileRequest":
                     userProfileRequest(ws, msg.username);
                     break;
-                case "successfulLogin":
-
             }
         } catch (err){
             console.log(err)
@@ -48,16 +46,6 @@ socket.on("connection", ws => {
     })
 })
 
-/*socket.onmessage = function(event) {
-    var msg = JSON.parse(event.data);
-    switch(msg.type) {
-      case "passwordRequest":
-        ws.send(JSON.stringify({event: "password", text: "tea"}));
-        console.log(msg.text);
-        ws.send()
-        break;
-    }
-};*/
 
 
 
@@ -69,12 +57,19 @@ socket.on("connection", ws => {
 
 
 
-function getData() {
+
+
+
+
+
+
+
+function getDatabase() {
     let data = 
     {
         "users": {
             "Chunky": {
-                "password": "lukeSmellsLikeSh#t",
+                "password": "lukeIsVerySmelly",
                 "userProfile": {
                     "fullName": "Thomas Lamoureux",
                     "creditCard": "8008-9990-5425-1234",
@@ -91,6 +86,46 @@ function getData() {
                     "birthDate": "12-15-2004",
                     "phoneNumber": "387-009-9999",
                     "email": "bwexler@stetson.edu",
+                }
+            },
+            "hackstetson2017": {
+                "password": "johnbstetson",
+                "userProfile": {
+                    "fullName": "Daniel Plante",
+                    "creditCard": "3003-1944-1230-8080",
+                    "birthDate": "03-06-1944",
+                    "phoneNumber": "386-822-7553",
+                    "email": "dplante@stetson.edu",
+                }
+            },
+            "Lalley": {
+                "password": "whatifweusedreversegrip",
+                "userProfile": {
+                    "fullName": "Luke Alley",
+                    "creditCard": "my credit score is so bad they took my credit card",
+                    "birthDate": "06-08-2004",
+                    "phoneNumber": "700-120-4343",
+                    "email": "lalley@stetson.edu",
+                }
+            },
+            "Aristotle": {
+                "password": "illegalactivities",
+                "userProfile": {
+                    "fullName": "Max Conrad",
+                    "creditCard": "5000-4000-3000-2000",
+                    "birthDate": "02-02-2002",
+                    "phoneNumber": "212-666-0901",
+                    "email": "mconrad1@stetson.edu",
+                }
+            },
+            "cosplayer": {
+                "password": "whyishelikethis",
+                "userProfile": {
+                    "fullName": "Len Lopez",
+                    "creditCard": "2100-3192-1240-5420",
+                    "birthDate": "05-03-2005",
+                    "phoneNumber": "100-525-1298",
+                    "email": "hllopez@stetson.edu",
                 }
             }
         }

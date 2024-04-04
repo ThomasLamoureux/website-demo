@@ -1,4 +1,3 @@
-document.getElementById("profileUserText").innerHTML = localStorage.profile + "'s profile";
 const socket = new WebSocket("ws://localhost:8080");
 
 socket.onmessage = function(event) {
@@ -19,16 +18,16 @@ socket.onopen = function(event) {
 
 
 function setProfile(profile) {
-    document.getElementById("profileName").innerHTML = profile.fullName;
-    document.getElementById("birthDate").innerHTML = profile.birthDate;
-    document.getElementById("phoneNumber").innerHTML = profile.phoneNumber;
-    document.getElementById("email").innerHTML = profile.email;
-    document.getElementById("paymentMethod").innerHTML = profile.creditCard;
+    document.getElementById("profileUserText").innerHTML = localStorage.username + "'s profile"
+    document.getElementById("profileName").innerHTML = "Name: " + profile.fullName;
+    document.getElementById("birthDate").innerHTML = "DoB: " + profile.birthDate;
+    document.getElementById("phoneNumber").innerHTML = "Phone: " + profile.phoneNumber;
+    document.getElementById("email").innerHTML = "Email: " + profile.email;
+    document.getElementById("paymentMethod").innerHTML = "Card: " + profile.creditCard;
 }
 
 
 function requestProfile() {
-    localStorage.username = "Chunky"
     let username = localStorage.username
     socket.send(JSON.stringify({type: "userProfileRequest", username: username}));
 }
